@@ -40,13 +40,14 @@
 					    Third thread (also every 3 seconds):<br>
 					      This thread will be responsible for checking for the state of each reading on the EPS board, reporting bad states, and responding to them.<br>
 					      This thread will handle non-normal states thus:<br>
-					        a> If all values report nominal state, or strictly fewer than 2 values were in critical, or warning state, do nothing<br>
-					        b> If two or more states are in warning, and none in critical, report the bad statesto the terminal<br>
-					        c> If two or more states are non-nominal, and at least one of them is in a critical state, report the bad states and increment<br>
-					          EPS_ALERT value in the EPS battery vector to keep track of the number of such states.<br>
-					        d> If EPS_ALERT reaches 5, as in condition (c) was met 5 times, report the bad states, reset the EPS_ALERT counter, and cancel all
-					          threads execution for 10 seconds before beginning them again. (note: you can assume that the counter is initialized to 0 since it is part of the array that is declared globally)<br>
-					  
+						<ul>
+					        	<li> a> If all values report nominal state, or strictly fewer than 2 values were in critical, or warning state, do nothing </li>
+					        	<li> b> If two or more states are in warning, and none in critical, report the bad statesto the terminal </li>
+					        	<li> c> If two or more states are non-nominal, and at least one of them is in a critical state, report the bad states and increment<br>
+					          EPS_ALERT value in the EPS battery vector to keep track of the number of such states. </li>
+					        	<li> d> If EPS_ALERT reaches 5, as in condition (c) was met 5 times, report the bad states, reset the EPS_ALERT counter, and cancel all
+					          threads execution for 10 seconds before beginning them again. (note: you can assume that the counter is initialized to 0 since it is part of the array that is declared globally) </li>
+						</ul>
 					  Your implementation MUST make use of thread synchronization features (such as a mutex, or semaphore) to ensure that the shared space in memory (battery vector) is not accessed by two threads at once!<br><br>
 
 					3 Given code:<br>
