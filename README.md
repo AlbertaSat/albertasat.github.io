@@ -1,4 +1,6 @@
-# Getting started
+# [Link To Docs](https://albertasat.netlify.com/)
+
+## Getting started
 
 These docs are build with Gitbook v1.
 
